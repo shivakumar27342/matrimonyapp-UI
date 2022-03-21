@@ -1,5 +1,5 @@
 steps:
-- name: google/cloud-sdk:alpine
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
   id: clone repo
   entrypoint: git
   args: ['clone', 'ls', 'pwd']
