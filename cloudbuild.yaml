@@ -1,5 +1,5 @@
 steps:
 - name: gcr.io/cloud-builders/git
-  args: ['clone', '.' 'ls', 'pwd']
+  args: ['clone', '.', 'ls', 'pwd']
 - name: gcr.io/cloud-builders/gsutil
   args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs:aeobucket01/dag"]
