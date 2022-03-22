@@ -6,6 +6,6 @@ steps:
   args: ['build', '--tag=gcr.io/$PROJECT_ID/git', '.']
 # Clone a public repo and write its revision to a VERSION file.
 - name: 'gcr.io/$PROJECT_ID/git'
-  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders.git', 'pwd', 'ls']  
+  args: ['clone', 'pwd', 'ls']  
 
   
