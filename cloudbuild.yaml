@@ -1,7 +1,11 @@
 steps:
-- name: gcr.io/cloud-builders/git
-  args: ['clone', '.', 'ls', 'pwd']
-- name: gcr.io/cloud-builders/gsutil
-  args: ["-m", "rsync", "-r", "-c", "-d", ".", "gs:aeobucket01/dag"]
-options:
-  logging: CLOUD_LOGGING_ONLY
+# Pull the latest gcloud image.
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'gcr.io/cloud-builders/gcloud']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/git', '.']
+# Clone a public repo and write its revision to a VERSION file.
+- name: 'gcr.io/$PROJECT_ID/git'
+  args: ['clone', 'https://github.com/GoogleCloudPlatform/cloud-builders.git', 'pwd', 'ls']  
+
+  
